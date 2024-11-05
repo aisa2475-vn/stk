@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin chuyển khoản</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://i.postimg.cc/CL68NS3P/hinh-nen-rong-dep-3d-mau-trang.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        .bank-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .account-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .account-info {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .account-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: white;
+            width: 45%;
+        }
+
+        .copy-btn {
+            background-color: #007bff;
+        }
+
+        .download-btn {
+            background-color: #28a745;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-code {
+            width: 150px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Màu sắc cho các nút ngân hàng */
+        .bank-btn {
+            width: 22%;
+            margin: 5px 1%;
+        }
+
+        .mbbank { background-color: #0056b3; }
+        .vcb { background-color: #006633; }
+        .techcombank { background-color: #d71a1a; }
+        .bidv { background-color: #003399; }
+        .agribank { background-color: #8b0000; }
+        .sacombank { background-color: #0057b8; }
+        .acb { background-color: #0082ca; }
+        .tpbank { background-color: #8f00ff; }
+        .vietinbank { background-color: #002a8f; }
+        .vpbank { background-color: #44b24d; }
+        .hdbank { background-color: #ff6600; }
+        .momo { background-color: #d81b60; }
+        .other-banks { background-color: #555; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.postimg.cc/d3dJ6mXx/Logo-MB-new.png" alt="MB Bank Logo" class="logo">
+        <div class="bank-name">MB Bank</div>
+        
+        <div class="account-name">TRAN LE HAU</div>
+        <div class="account-info">Số tài khoản MB Bank:</div>
+        <div class="account-number" id="accountNumber">8898797327</div>
+        
+        <button class="btn copy-btn" onclick="copyAccountNumber()">Sao chép số tài khoản</button>
+        <button class="btn download-btn" onclick="downloadQRCode()">Tải mã QR</button>
+        <img src="https://i.postimg.cc/tRdQWgxb/STK.jpg" alt="QR Code" class="qr-code">
+        
+        <div class="section-title">Chuyển tiếp đến ngân hàng</div>
+        <div class="bank-buttons">
+            <button class="btn bank-btn mbbank" onclick="openBankApp('mbbank', 'com.mbmobile')">MB Bank</button>
+            <button class="btn bank-btn vcb" onclick="openBankApp('vcb', 'com.vietcombank')">Vietcombank</button>
+            <button class="btn bank-btn techcombank" onclick="openBankApp('techcombank', 'vn.com.techcombank')">Techcombank</button>
+            <button class="btn bank-btn bidv" onclick="openBankApp('bidv', 'com.bidv.smartbanking')">BIDV</button>
+            <button class="btn bank-btn agribank" onclick="openBankApp('agribank', 'vn.com.agribank.mobilebanking')">Agribank</button>
+            <button class="btn bank-btn sacombank" onclick="openBankApp('sacombank', 'com.sacombank.smobile')">Sacombank</button>
+            <button class="btn bank-btn acb" onclick="openBankApp('acb', 'com.acb.acbmobile')">ACB</button>
+            <button class="btn bank-btn tpbank" onclick="openBankApp('tpbank', 'com.tpb.tpbank')">TPBank</button>
+            <button class="btn bank-btn vietinbank" onclick="openBankApp('vietinbank', 'com.vietinbank.ipay')">VietinBank</button>
+            <button class="btn bank-btn vpbank" onclick="openBankApp('vpbank', 'vn.com.vpbank.vpbankonline')">VPBank</button>
+            <button class="btn bank-btn hdbank" onclick="openBankApp('hdbank', 'com.hdbank.mobilebanking')">HDBank</button>
+            <button class="btn bank-btn momo" onclick="openBankApp('momo', 'com.mservice.momotransfer')">MoMo</button>
+            <button class="btn bank-btn other-banks" onclick="openBankApp('other', 'link.to.otherbanks')">Ngân hàng khác...</button>
+        </div>
+    </div>
+
+    <script>
+        function copyAccountNumber() {
+            const accountNumber = document.getElementById("accountNumber").innerText;
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                alert("Đã sao chép số tài khoản!");
+            }).catch((error) => {
+                alert("Không thể sao chép. Vui lòng thử lại!");
+            });
+        }
+
+        function downloadQRCode() {
+            const qrCodeUrl = "https://i.postimg.cc/tbwq0ZRs/STK.jpg?dl=1.png";
+            const a = document.createElement("a");
+            a.href = qrCodeUrl;
+            a.download = "QR_MBBank_8898797327.png";
+            a.click();
+        }
+
+        function openBankApp(bankName, packageName) {
+            const url = `intent://${bankName}#Intent;scheme=${bankName};package=${packageName};end`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
