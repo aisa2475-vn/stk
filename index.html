@@ -119,8 +119,9 @@
 
         /* Màu sắc cho các nút ngân hàng */
         .bank-btn {
-            width: 22%;
-            margin: 5px 1%;
+            width: 45%;
+            margin: 5px 2%;
+            display: inline-block;
         }
 
         .mbbank { background-color: #0056b3; }
@@ -135,7 +136,7 @@
         .vpbank { background-color: #44b24d; }
         .hdbank { background-color: #ff6600; }
         .momo { background-color: #d81b60; }
-        .other-banks { background-color: #555; }
+        .other-banks { background-color: #555; width: 90%; margin: 10px auto; }
     </style>
 </head>
 <body>
@@ -153,19 +154,19 @@
         
         <div class="section-title">Chuyển tiếp đến ngân hàng</div>
         <div class="bank-buttons">
-            <button class="btn bank-btn mbbank" onclick="openBankApp('mbbank', 'com.mbmobile')">MB Bank</button>
-            <button class="btn bank-btn vcb" onclick="openBankApp('vcb', 'com.vietcombank')">Vietcombank</button>
-            <button class="btn bank-btn techcombank" onclick="openBankApp('techcombank', 'vn.com.techcombank')">Techcombank</button>
-            <button class="btn bank-btn bidv" onclick="openBankApp('bidv', 'com.bidv.smartbanking')">BIDV</button>
-            <button class="btn bank-btn agribank" onclick="openBankApp('agribank', 'vn.com.agribank.mobilebanking')">Agribank</button>
-            <button class="btn bank-btn sacombank" onclick="openBankApp('sacombank', 'com.sacombank.smobile')">Sacombank</button>
-            <button class="btn bank-btn acb" onclick="openBankApp('acb', 'com.acb.acbmobile')">ACB</button>
-            <button class="btn bank-btn tpbank" onclick="openBankApp('tpbank', 'com.tpb.tpbank')">TPBank</button>
-            <button class="btn bank-btn vietinbank" onclick="openBankApp('vietinbank', 'com.vietinbank.ipay')">VietinBank</button>
-            <button class="btn bank-btn vpbank" onclick="openBankApp('vpbank', 'vn.com.vpbank.vpbankonline')">VPBank</button>
-            <button class="btn bank-btn hdbank" onclick="openBankApp('hdbank', 'com.hdbank.mobilebanking')">HDBank</button>
-            <button class="btn bank-btn momo" onclick="openBankApp('momo', 'com.mservice.momotransfer')">MoMo</button>
-            <button class="btn bank-btn other-banks" onclick="openBankApp('other', 'link.to.otherbanks')">Ngân hàng khác...</button>
+            <button class="btn bank-btn mbbank" onclick="openBankApp('https://mbbank.onelink.me')">MB Bank</button>
+            <button class="btn bank-btn vcb" onclick="openBankApp('https://vietcombank.page.link')">VCB Digibank</button>
+            <button class="btn bank-btn techcombank" onclick="openBankApp('https://play.google.com/store/apps/details?id=vn.com.techcombank.bb.app')">Techcombank</button>
+            <button class="btn bank-btn bidv" onclick="openBankApp('https://bankbidv.page.link')">BIDV</button>
+            <button class="btn bank-btn agribank" onclick="openBankApp('https://agribank.truelink.vn')">Agribank</button>
+            <button class="btn bank-btn sacombank" onclick="openBankApp('https://play.google.com/store/apps/details?id=com.sacombank.ewallet')">Sacombank</button>
+            <button class="btn bank-btn acb" onclick="openBankApp('https://acbapp.page.link')">ACB ONE</button>
+            <button class="btn bank-btn tpbank" onclick="openBankApp('https://play.google.com/store/apps/details?id=com.tpb.mb.gprsandroid')">TPBank</button>
+            <button class="btn bank-btn vietinbank" onclick="openBankApp('https://ipaysharing.page.link')">VietinBank</button>
+            <button class="btn bank-btn vpbank" onclick="openBankApp('https://vpouat.page.link')">VPBank NEO</button>
+            <button class="btn bank-btn hdbank" onclick="openBankApp('https://hdbank.page.link')">HDBank</button>
+            <button class="btn bank-btn momo" onclick="openBankApp('https://momoapp.page.link')">MoMo</button>
+            <button class="btn bank-btn other-banks" onclick="openBankApp('https://play.google.com/store')">Ngân hàng khác...</button>
         </div>
     </div>
 
@@ -187,8 +188,7 @@
             a.click();
         }
 
-        function openBankApp(bankName, packageName) {
-            const url = `intent://${bankName}#Intent;scheme=${bankName};package=${packageName};end`;
+        function openBankApp(url) {
             window.location.href = url;
         }
     </script>
