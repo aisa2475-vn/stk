@@ -168,11 +168,13 @@
     <script>
         function copyAccountNumber() {
             const accountNumber = document.getElementById("accountNumber").innerText;
-            navigator.clipboard.writeText(accountNumber).then(() => {
-                alert("Đã sao chép số tài khoản!");
-            }).catch((error) => {
-                alert("Không thể sao chép. Vui lòng thử lại!");
-            });
+            const inputElement = document.createElement('textarea');
+            inputElement.value = accountNumber;
+            document.body.appendChild(inputElement);
+            inputElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(inputElement);
+            alert("Đã sao chép số tài khoản!");
         }
 
         function downloadQRCode() {
